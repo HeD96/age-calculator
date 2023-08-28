@@ -8,7 +8,121 @@ let years_input = document.querySelector("#year");
 
 let calculate_btn = document.querySelector(".calc-button");
 
-calculate_btn.addEventListener("click", CalculateAge);
+days_input.addEventListener("keyup", function () {
+    Limiter.limitDays(days_input);
+    Validator.daysValid(days_input);
+    // Validation(days_input);
+});
+
+months_input.addEventListener("keyup", function () {
+    Limiter.limitMonths(months_input);
+    Validator.monthsValid(months_input);
+    // Validation(months_input);
+});
+
+years_input.addEventListener("keyup", function () {
+    Limiter.limitYears(years_input);
+    Validator.yearsValid(years_input);
+    // Validation(years_input);
+});
+
+// calculate_btn.addEventListener("click", CalculateAge);
+
+// calculate_btn.addEventListener("click", Validation);
+
+let Limiter = (function () {
+    let maxChar = 2;
+    let maxCharYear = 4;
+
+    let limitDays = function (days) {
+        if (days.value.length >= 3) {
+            days.value = days.value.substring(0, maxChar);
+        }
+    };
+
+    let limitMonths = function (months) {
+        if (months.value.length >= 3) {
+            months.value = months.value.substring(0, maxChar);
+        }
+    };
+
+    let limitYears = function (years) {
+        if (years.value.length >= 3) {
+            years.value = years.value.substring(0, maxCharYear);
+        }
+    };
+
+    return {
+        limitDays,
+        limitMonths,
+        limitYears,
+    };
+})();
+
+let Validator = (function () {
+    let daysValid = function (days) {
+        if (days.value <= 31 && days.value > 0) {
+            days.classList.add("valid");
+            days.classList.remove("invalid");
+        } else if (days.value == "") {
+            days.classList.remove("valid");
+            days.classList.remove("invalid");
+        } else {
+            days.classList.add("invalid");
+            days.classList.remove("valid");
+        }
+    };
+
+    let monthsValid = function (months) {
+        if (months.value <= 12 && months.value > 0) {
+            months.classList.add("valid");
+            months.classList.remove("invalid");
+        } else if (months.value == "") {
+            months.classList.remove("valid");
+            months.classList.remove("invalid");
+        } else {
+            months.classList.add("invalid");
+            months.classList.remove("valid");
+        }
+    };
+
+    let yearsValid = function (years) {
+        if (years.value >= 1) {
+            years.classList.add("valid");
+            years.classList.remove("invalid");
+        } else if (years.value == "") {
+            years.classList.remove("valid");
+            years.classList.remove("invalid");
+        } else {
+            years.classList.add("invalid");
+            years.classList.remove("valid");
+        }
+    };
+
+    return {
+        daysValid,
+        monthsValid,
+        yearsValid,
+    };
+})();
+
+function Validation(days) {
+    // if (days.value <= 31 && days.value > 0) {
+    //     days.style.outline = "2px solid rgba(0, 128, 0, 0.3)";
+    // } else if (days.value == "") {
+    //     days.style.outline = "1px solid hsl(0, 0%, 86%)";
+    // } else {
+    //     days.style.outline = "2px solid rgba(255, 0, 0, 0.3)";
+    // }
+    // if (days.value <= 31 && days.value > 0) {
+    //     days.classList.add("valid");
+    // } else if (days.value == "") {
+    //     days.classList.remove("valid");
+    //     days.classList.remove("invalid");
+    // } else {
+    //     days.classList.add("invalid");
+    // }
+}
 
 function CalculateAge() {
     //works, but needs serious refactoring or another solution
