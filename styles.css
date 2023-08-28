@@ -1,0 +1,105 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100%;
+    background-color: hsl(0, 0%, 86%);
+}
+
+.calculator-body {
+    height: 45rem;
+    width: 60rem;
+    padding: 4.5rem;
+    border-radius: 1.5rem 1.5rem 16rem 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user-input {
+    /* border: 2px solid red; */
+    height: 30%;
+    position: relative;
+    border-bottom: 2px solid hsl(0, 0%, 86%);
+}
+
+input {
+    height: 5.5rem;
+    width: 12rem;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(0, 0%, 86%);
+    padding: 2rem;
+    color: hsl(0, 0%, 30%);
+    font-size: 2.3rem;
+}
+
+input:focus {
+    outline: 3px solid hsla(259, 100%, 65%, 0.15);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3rem;
+}
+
+.day,
+.month,
+.year {
+    display: inline-block;
+    color: hsl(0, 1%, 44%);
+}
+
+.user-input img {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    padding: 2rem;
+    border-radius: 50%;
+    bottom: -35%;
+    right: 0;
+    cursor: pointer;
+    background-color: hsl(259, 100%, 65%);
+}
+
+.user-input img:hover {
+    box-shadow: 0 0 8px 3px hsla(259, 100%, 65%, 0.3);
+}
+
+.output {
+    height: 70%;
+    padding-top: 2.5rem;
+}
+
+.output span {
+    color: hsl(259, 100%, 65%);
+}
+
+.output p {
+    color: hsl(0, 0%, 8%);
+    font-size: 7rem;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1.1;
+}
